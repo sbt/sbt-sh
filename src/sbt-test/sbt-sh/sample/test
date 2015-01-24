@@ -1,0 +1,9 @@
+# should fail because foo.txt doesn't exist
+-> sh cat foo.txt
+
+> sh ( sleep 1; touch foo.txt; )&
+> sh ls > ls.txt
+> sh sleep 1
+> sh cat ls.txt | tee ls2.txt
+> sh cat bar.txt || ls
+> sh cat ls.txt; ls ;
