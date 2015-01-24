@@ -15,6 +15,10 @@ Happiness and productivity ensues without the hassle of exiting sbt or opening m
 Setup
 -----
 
+Requirements:
+
+- sbt 0.13.7+
+
 To install sbt-sh, add it to your global sbt plugin list by creating `~/.sbt/0.13/plugins/sh.sbt`:
 
 ```scala

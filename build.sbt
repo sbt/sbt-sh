@@ -3,7 +3,7 @@ val root = (project in file(".")).
     sbtPlugin := true,
     organization := "com.eed3si9n",
     name := "sbt-sh",
-    version := "0.1.0-SNAPSHOT",
+    version := "0.1.0",
     description := "sbt plugin to invoke shell commands",
     licenses := Seq("MIT License" -> url("https://github.com/sbt/sbt-sh/blob/master/LICENSE"))
   ).

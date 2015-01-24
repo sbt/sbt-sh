@@ -1,0 +1,30 @@
+
+## shell commands from sbt shell
+
+[sbt/sbt-sh][1] is a fork of [steppenwells/sbt-sh][2] that's been inactive for a while.
+To add sbt-sh as a global plugin, create `~/.sbt/0.13/plugins/sh.sbt` (requires sbt 0.13.7):
+
+    addSbtPlugin("com.eed3si9n" % "sbt-sh" % "0.1.0")
+
+This plugin adds the `sh` task. This will execute the rest of the line as a shell command.
+
+    root> sh git status
+    [info] On branch wip/sequential
+    [info] Your branch is up-to-date with 'upstream/wip/sequential'.
+    [info] nothing to commit, working directory clean
+
+## shell emulation
+
+Using sbt's parser combinator and `sbt.Process` API, sbt-sh emulates POSIX shell's pipeline and redirection.
+
+    sbt-sh> sh ls > ls.txt
+    [success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM
+    sbt-sh> sh cat nonexistent.txt || cat ls.txt | wc -l
+    [error] cat: nonexistent.txt: No such file or directory
+    [info]        7
+    [success] Total time: 0 s, completed Jan 23, 2015 11:00:00 PM
+
+Check out the [README][1] for the details.
+
+ [1]: https://github.com/sbt/sbt-sh
+ [2]: https://github.com/steppenwells/sbt-sh
